@@ -1,0 +1,20 @@
+# Daily food rations for each animal (in kg)
+daily_penguin_ration = 2.3  # corrected daily ration for penguins
+daily_seal_ration = 4.5     # in kg
+daily_polar_bear_ration = 6.33  # corrected daily ration for polar bears
+
+# Gather input from the user for the number of animals
+penguins = int(input("Enter the number of penguins: "))
+seals = int(input("Enter the number of seals: "))
+polar_bears = int(input("Enter the number of polar bears: "))
+
+# Calculate the total monthly food consumption for each type of animal
+days_in_month = 30
+penguin_food_total = round(penguins * daily_penguin_ration * days_in_month)
+seal_food_total = round(seals * daily_seal_ration * days_in_month)
+polar_bear_food_total = round(polar_bears * daily_polar_bear_ration * days_in_month)
+
+# Display the results
+print(f"\nThe food consumed by penguins is {penguin_food_total} kg")
+print(f"The food consumed by seals is {seal_food_total} kg")
+print(f"The food consumed by polar bears is {polar_bear_food_total} kg")
