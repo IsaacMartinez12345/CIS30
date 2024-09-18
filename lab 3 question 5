@@ -1,0 +1,24 @@
+# Function to calculate weight
+def calculate_weight():
+    # Constant for gravity (in newtons per kilogram)
+    GRAVITY = 9.8
+    
+    # Prompt the user to input 
+    mass = float(input("Enter the object's mass in kilograms: "))
+    
+    # Calculate the object's weight in newtons
+    weight = mass * GRAVITY
+    
+    # Display the calculated weight
+    print(f"The object's weight is {weight:.2f} newtons.")
+    
+    # Check if the object is heavy, light
+    if weight > 500:
+        print("The object is too heavy.")
+    elif weight < 100:
+        print("The object is too light.")
+    else:
+        print("The object's weight is within the normal range.")
+
+# function 
+calculate_weight()
