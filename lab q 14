@@ -1,0 +1,38 @@
+# conversions
+def convert_seconds():
+    # Get the number of seconds from the user
+    total_seconds = int(input("Enter the number of seconds: "))
+    
+    # Constants for conversions
+    SECONDS_IN_A_MINUTE = 60
+    SECONDS_IN_AN_HOUR = 3600
+    SECONDS_IN_A_DAY = 86400
+    
+    # number of days, hours, minutes, and seconds
+    if total_seconds >= SECONDS_IN_A_DAY:
+        days = total_seconds // SECONDS_IN_A_DAY
+        total_seconds = total_seconds % SECONDS_IN_A_DAY
+        print(f"{days} day(s)", end=", ")
+    else:
+        days = 0
+    
+    if total_seconds >= SECONDS_IN_AN_HOUR:
+        hours = total_seconds // SECONDS_IN_AN_HOUR
+        total_seconds = total_seconds % SECONDS_IN_AN_HOUR
+        print(f"{hours} hour(s)", end=", ")
+    else:
+        hours = 0
+    
+    if total_seconds >= SECONDS_IN_A_MINUTE:
+        minutes = total_seconds // SECONDS_IN_A_MINUTE
+        total_seconds = total_seconds % SECONDS_IN_A_MINUTE
+        print(f"{minutes} minute(s)", end=", ")
+    else:
+        minutes = 0
+    
+    # reamaing time left
+    seconds = total_seconds
+    print(f"{seconds} second(s)")
+
+# run functions
+convert_seconds()
