@@ -1,0 +1,30 @@
+
+#  hot dog and bun packages and leftovers
+def calculate_cookout_requirements():
+    # Constants for package sizes
+    HOT_DOGS_PER_PACKAGE = 10
+    BUNS_PER_PACKAGE = 8
+    
+    # Get input from the user
+    num_people = int(input("Enter the number of people attending the cookout: "))
+    hot_dogs_per_person = int(input("Enter the number of hot dogs each person will be given: "))
+    
+    # hot dogs needed
+    total_hot_dogs_needed = num_people * hot_dogs_per_person
+    
+    # packs needed
+    hot_dog_packages = math.ceil(total_hot_dogs_needed / HOT_DOGS_PER_PACKAGE)
+    bun_packages = math.ceil(total_hot_dogs_needed / BUNS_PER_PACKAGE)
+    
+    # leftovers
+    hot_dogs_leftover = hot_dog_packages * HOT_DOGS_PER_PACKAGE - total_hot_dogs_needed
+    buns_leftover = bun_packages * BUNS_PER_PACKAGE - total_hot_dogs_needed
+    
+    # Display 
+    print(f"The minimum number of packages of hot dogs required: {hot_dog_packages}")
+    print(f"The minimum number of packages of hot dog buns required: {bun_packages}")
+    print(f"The number of hot dogs that will be left over: {hot_dogs_leftover}")
+    print(f"The number of hot dog buns that will be left over: {buns_leftover}")
+
+# function to run
+calculate_cookout_requirements()
