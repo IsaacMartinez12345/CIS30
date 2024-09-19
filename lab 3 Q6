@@ -1,0 +1,16 @@
+# Function to determine magic
+def is_magic_date():
+    # Prompt the user for input
+    month = int(input("Enter the month (numeric form, e.g., 6 for June): "))
+    day = int(input("Enter the day: "))
+    year = int(input("Enter the two-digit year (e.g., 60 for 1960): "))
+
+    # Check if month times day equals the year
+    if month * day == year:
+        print("The date is magic!")
+    else:
+        print("The date is not magic.")
+
+# function to execute
+is_magic_date()
+ 
