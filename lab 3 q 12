@@ -1,0 +1,41 @@
+# discount
+def calculate_total():
+    # Constants
+    package_price = 99.0
+    
+    # rates based on amounts
+    discount_10_19 = 0.10  # 10% for 10-19 packages
+    discount_20_49 = 0.20  # 20% for 20-49 packages
+    discount_50_99 = 0.30  # 30% for 50-99 packages
+    discount_100_more = 0.40  # 40% for 100 or more packages
+
+    # Get the number of packages purchased from the user
+    num_packages = int(input("Enter the number of packages purchased: "))
+
+    # discount based on packages
+    if num_packages >= 100:
+        discount = discount_100_more
+    elif num_packages >= 50:
+        discount = discount_50_99
+    elif num_packages >= 20:
+        discount = discount_20_49
+    elif num_packages >= 10:
+        discount = discount_10_19
+    else:
+        discount = 0.0  # No discount for less than 10 packages
+
+    # amount before the discount
+    total_before_discount = num_packages * package_price
+    
+    # before discount calculate
+    discount_amount = total_before_discount * discount
+    
+    # after discount
+    total_after_discount = total_before_discount - discount_amount
+    
+    # Display the discount and the total amount
+    print(f"Discount amount: ${discount_amount:.2f}")
+    print(f"Total amount after discount: ${total_after_discount:.2f}")
+
+# run execute
+calculate_total()
