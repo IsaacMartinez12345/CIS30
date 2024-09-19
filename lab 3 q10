@@ -1,0 +1,28 @@
+# for counting
+def change_counting_game():
+    # Define the value of each coin in dollars
+    PENNY = 0.01
+    NICKEL = 0.05
+    DIME = 0.10
+    QUARTER = 0.25
+    ONE_DOLLAR = 1.00
+    
+    # Prompt the user to enter the number of each coin
+    num_pennies = int(input("Enter the number of pennies: "))
+    num_nickels = int(input("Enter the number of nickels: "))
+    num_dimes = int(input("Enter the number of dimes: "))
+    num_quarters = int(input("Enter the number of quarters: "))
+    
+    # total value of coins
+    total_value = (num_pennies * PENNY) + (num_nickels * NICKEL) + (num_dimes * DIME) + (num_quarters * QUARTER)
+    
+    # compare with dollar to determine
+    if total_value == ONE_DOLLAR:
+        print("Congratulations! The amount you entered makes exactly one dollar!")
+    elif total_value < ONE_DOLLAR:
+        print(f"The total amount is less than one dollar. You entered ${total_value:.2f}.")
+    else:
+        print(f"The total amount is more than one dollar. You entered ${total_value:.2f}.")
+
+# run execute 
+change_counting_game()
