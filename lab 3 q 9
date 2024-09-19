@@ -1,0 +1,38 @@
+# Function to determine the color of a roulette pocket
+def roulette_color():
+    # Prompt the user for input
+    pocket_number = int(input("Enter a pocket number (0-36): "))
+    
+    # number entered
+    if pocket_number < 0 or pocket_number > 36:
+        print("Error: The pocket number must be between 0 and 36.")
+    else:
+        # choose color based on number
+        if pocket_number == 0:
+            color = "green"
+        elif 1 <= pocket_number <= 10:
+            if pocket_number % 2 == 0:
+                color = "black"
+            else:
+                color = "red"
+        elif 11 <= pocket_number <= 18:
+            if pocket_number % 2 == 0:
+                color = "red"
+            else:
+                color = "black"
+        elif 19 <= pocket_number <= 28:
+            if pocket_number % 2 == 0:
+                color = "black"
+            else:
+                color = "red"
+        elif 29 <= pocket_number <= 36:
+            if pocket_number % 2 == 0:
+                color = "red"
+            else:
+                color = "black"
+        
+        # Display 
+        print(f"Pocket {pocket_number} is {color}.")
+
+# run functions
+roulette_color()
