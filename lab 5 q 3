@@ -1,0 +1,29 @@
+#  the insurance percentage
+INSURANCE_PERCENTAGE = 0.80
+
+# Function to calculate the minimum amount
+def calculate_minimum_insurance(replacement_cost):
+    return replacement_cost * INSURANCE_PERCENTAGE
+
+# Function replacment cost from the user
+def get_replacement_cost():
+    return float(input("Enter the replacement cost of the building: $"))
+
+# Function to display the results
+def display_insurance_amount(minimum_insurance):
+    print(f"\nThe minimum amount of insurance you should buy for the property is: ${minimum_insurance:.2f}")
+
+# Main functions
+def main():
+    # Get the replacement cost from the user
+    replacement_cost = get_replacement_cost()
+
+    # Calculate the minimum insurance amount
+    minimum_insurance = calculate_minimum_insurance(replacement_cost)
+
+    # Display the result
+    display_insurance_amount(minimum_insurance)
+
+# calls of main functions
+if __name__ == "__main__":
+    main()
