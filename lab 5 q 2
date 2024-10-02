@@ -1,0 +1,38 @@
+#  calculate the sales tax
+def calculate_sales_tax(purchase_amount, tax_rate):
+    return purchase_amount * tax_rate
+
+#get the purchase amount and tax rates from the user
+def get_user_input():
+    purchase_amount = float(input("Enter the purchase amount: $"))
+    state_tax_rate = float(input("Enter the state sales tax rate (as a percentage): ")) / 100
+    county_tax_rate = float(input("Enter the county sales tax rate (as a percentage): ")) / 100
+    return purchase_amount, state_tax_rate, county_tax_rate
+
+# display the results
+def display_results(purchase_amount, state_tax, county_tax, total_tax, total_cost):
+    print(f"\nPurchase amount: ${purchase_amount:.2f}")
+    print(f"State sales tax: ${state_tax:.2f}")
+    print(f"County sales tax: ${county_tax:.2f}")
+    print(f"Total sales tax: ${total_tax:.2f}")
+    print(f"Total amount (including tax): ${total_cost:.2f}")
+
+# Main function
+def main():
+    # Get the purchase amount and tax rates from the user
+    purchase_amount, state_tax_rate, county_tax_rate = get_user_input()
+
+    # Calculate state and county taxes
+    state_tax = calculate_sales_tax(purchase_amount, state_tax_rate)
+    county_tax = calculate_sales_tax(purchase_amount, county_tax_rate)
+
+    # Calculate total tax and total cost
+    total_tax = state_tax + county_tax
+    total_cost = purchase_amount + total_tax
+
+    # Display the results
+    display_results(purchase_amount, state_tax, county_tax, total_tax, total_cost)
+
+# Call 
+if __name__ == "__main__":
+    main()
