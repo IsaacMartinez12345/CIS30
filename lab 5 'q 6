@@ -1,0 +1,42 @@
+# ticket prices 
+CLASS_A_PRICE = 20.00
+CLASS_B_PRICE = 15.00
+CLASS_C_PRICE = 10.00
+
+# Function to have how many sold
+def get_tickets_sold():
+    class_a_tickets = int(input("Enter the number of Class A tickets sold: "))
+    class_b_tickets = int(input("Enter the number of Class B tickets sold: "))
+    class_c_tickets = int(input("Enter the number of Class C tickets sold: "))
+    return class_a_tickets, class_b_tickets, class_c_tickets
+
+# Function calculates income 
+def calculate_income(tickets_sold, ticket_price):
+    return tickets_sold * ticket_price
+
+# Function to display the results
+def display_income(class_a_income, class_b_income, class_c_income, total_income):
+    print(f"\nIncome generated from Class A tickets: ${class_a_income:.2f}")
+    print(f"Income generated from Class B tickets: ${class_b_income:.2f}")
+    print(f"Income generated from Class C tickets: ${class_c_income:.2f}")
+    print(f"Total income generated: ${total_income:.2f}")
+
+# Main function
+def main():
+    # Get the number of tickets sold for each class
+    class_a_tickets, class_b_tickets, class_c_tickets = get_tickets_sold()
+
+    # Calculate income for each class
+    class_a_income = calculate_income(class_a_tickets, CLASS_A_PRICE)
+    class_b_income = calculate_income(class_b_tickets, CLASS_B_PRICE)
+    class_c_income = calculate_income(class_c_tickets, CLASS_C_PRICE)
+
+    # Calculate total income
+    total_income = class_a_income + class_b_income + class_c_income
+
+    # Display the results
+    display_income(class_a_income, class_b_income, class_c_income, total_income)
+
+# Call the main function
+if __name__ == "__main__":
+    main()
