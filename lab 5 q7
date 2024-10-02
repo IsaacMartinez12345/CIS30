@@ -1,0 +1,61 @@
+# Cnsta
+SQUARE_FEET_PER_GALLON = 112
+HOURS_PER_GALLON = 8
+LABOR_CHARGE_PER_HOUR = 35.00
+
+# Func user input
+def get_user_inputs():
+    square_feet = float(input("Enter the square feet of wall space to be painted: "))
+    paint_price_per_gallon = float(input("Enter the price of the paint per gallon: $"))
+    return square_feet, paint_price_per_gallon
+
+# Function to calculate the number of gallons paint needed
+def calculate_gallons_of_paint(square_feet):
+    return square_feet / SQUARE_FEET_PER_GALLON
+
+# Function to calculate the hours of labor needed
+def calculate_hours_of_labor(gallons_of_paint):
+    return gallons_of_paint * HOURS_PER_GALLON
+
+# Function to calculate the cost of paint
+def calculate_paint_cost(gallons_of_paint, paint_price_per_gallon):
+    return gallons_of_paint * paint_price_per_gallon
+
+# Function to calculate the labor charges needed
+def calculate_labor_charges(hours_of_labor):
+    return hours_of_labor * LABOR_CHARGE_PER_HOUR
+
+# Function to display the results
+def display_results(gallons_of_paint, hours_of_labor, paint_cost, labor_charges, total_cost):
+    print(f"\nGallons of paint required: {gallons_of_paint:.2f}")
+    print(f"Hours of labor required: {hours_of_labor:.2f}")
+    print(f"Cost of the paint: ${paint_cost:.2f}")
+    print(f"Labor charges: ${labor_charges:.2f}")
+    print(f"Total cost of the paint job: ${total_cost:.2f}")
+
+# Main function
+def main():
+    # Get user inputs
+    square_feet, paint_price_per_gallon = get_user_inputs()
+
+    # Calculate the number of gallons of paint required
+    gallons_of_paint = calculate_gallons_of_paint(square_feet)
+
+    # Calculate the hours of labor required
+    hours_of_labor = calculate_hours_of_labor(gallons_of_paint)
+
+    # Calculate the cost of the paint
+    paint_cost = calculate_paint_cost(gallons_of_paint, paint_price_per_gallon)
+
+    # Calculate the labor charges
+    labor_charges = calculate_labor_charges(hours_of_labor)
+
+    # Calculate the total cost of the paint job
+    total_cost = paint_cost + labor_charges
+
+    # Display the results
+    display_results(gallons_of_paint, hours_of_labor, paint_cost, labor_charges, total_cost)
+
+# Call the main function
+if __name__ == "__main__":
+    main()
