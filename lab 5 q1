@@ -1,0 +1,20 @@
+# Function to convert kilometers to miles
+def convert_km_to_miles(kilometers):
+    # Conversion factor
+    conversion_factor = 0.6214
+    return kilometers * conversion_factor
+
+# Main program
+def main():
+    # Ask user for input
+    kilometers = float(input("Enter distance in kilometers: "))
+    
+    # Call the conversion function
+    miles = convert_km_to_miles(kilometers)
+    
+    # Display the result
+    print(f"{kilometers} kilometers is equal to {miles:.2f} miles.")
+
+# main function
+if __name__ == "__main__":
+    main()
