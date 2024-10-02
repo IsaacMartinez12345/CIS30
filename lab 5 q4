@@ -1,0 +1,41 @@
+# Function to the monthly expenses the user inputs
+def get_monthly_expenses():
+    loan_payment = float(input("Enter your monthly loan payment: $"))
+    insurance = float(input("Enter your monthly insurance cost: $"))
+    gas = float(input("Enter your monthly gas cost: $"))
+    oil = float(input("Enter your monthly oil cost: $"))
+    tires = float(input("Enter your monthly tires cost: $"))
+    maintenance = float(input("Enter your monthly maintenance cost: $"))
+    
+    return loan_payment, insurance, gas, oil, tires, maintenance
+
+# Function to calculate the total monthly cost
+def calculate_total_monthly_cost(expenses):
+    return sum(expenses)
+
+# Function to calculate the total annual cost
+def calculate_total_annual_cost(monthly_cost):
+    return monthly_cost * 12
+
+# Function to display the results
+def display_costs(monthly_cost, annual_cost):
+    print(f"\nTotal monthly cost: ${monthly_cost:.2f}")
+    print(f"Total annual cost: ${annual_cost:.2f}")
+
+# Main function
+def main():
+    # Get the monthly expenses from the user
+    expenses = get_monthly_expenses()
+
+    # Calculate the total monthly cost
+    total_monthly_cost = calculate_total_monthly_cost(expenses)
+
+    # Calculate the total annual cost
+    total_annual_cost = calculate_total_annual_cost(total_monthly_cost)
+
+    # Display the results
+    display_costs(total_monthly_cost, total_annual_cost)
+
+# Call the main function
+if __name__ == "__main__":
+    main()
