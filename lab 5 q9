@@ -1,0 +1,18 @@
+# Function to convert feet to inches
+def feet_to_inches(feet):
+    return feet * 12
+
+# Main function
+def main():
+    # Ask the user for the number of feet
+    feet = float(input("Enter the number of feet: "))
+    
+    # Convert feet to inches
+    inches = feet_to_inches(feet)
+    
+    # Display the result
+    print(f"{feet} feet is equal to {inches:.2f} inches.")
+
+# Call the main function
+if __name__ == "__main__":
+    main()
