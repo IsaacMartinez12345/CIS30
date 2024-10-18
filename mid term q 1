@@ -1,0 +1,21 @@
+def process_grades(input_file, output_file):
+    if not os.path.exists(input_file):
+        print(f"The file '{input_file}' does not exist.")
+        return
+
+    with open(input_file, 'r') as file:
+        grades = [int(line.split()[1]) for line in file]
+
+    average = sum(grades) / len(grades)
+    count_above = sum(1 for grade in grades if grade > average)
+
+    with open(output_file, 'w') as file:
+        file.write(f"Average grade: {average:.2f}\n")
+        file.write(f"Number of students above average: {count_above}\n")
+
+# Prompt user for path
+input_file = input("Please enter the path to grades.txt file: ")
+output_file = 'results.txt'
+
+# Run code
+process_grades(input_file, output_file)
