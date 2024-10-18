@@ -1,0 +1,23 @@
+# Function definition
+def transform_data(integers):
+    # 
+    squared_values = [num ** 2 for num in integers]
+    
+    #  sum of the squared values
+    squared_sum = sum(squared_values)
+    
+    # Step 3: Return the new list and the sum
+    return squared_values, squared_sum
+
+# the function to test
+if __name__ == "__main__":
+    # intergers for testing for code
+    test_data = [4, 6, 7, 9]
+
+    # functions for cal
+    squares, total_sum = transform_data(test_data)
+
+    # Print the results
+    print("Original Data:", test_data)
+    print("Squared Values:", squares)
+    print("Sum of Squared Values:", total_sum)
