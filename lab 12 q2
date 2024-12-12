@@ -1,0 +1,14 @@
+
+# Recursive function to calculate multiplication using repeated addition
+def recursive_multiply(x, y):
+    if y == 0:
+        return 0
+    return x + recursive_multiply(x, y - 1)
+
+# Main program for testing
+if __name__ == "__main__":
+    # Test the recursive multiplication function
+    x = 7  # Example value for x
+    y = 4  # Example value for y
+    result = recursive_multiply(x, y)
+    print(f"The result of {x} × {y} is: {result}")
