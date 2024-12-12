@@ -1,0 +1,28 @@
+Function to extract unique words from a file
+def extract_unique_words(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            unique_words = set()
+            for line in file:
+                words = line.split()
+                unique_words.update(word.strip(".,!?""'()[]") for word in words)
+        return unique_words
+    except FileNotFoundError:
+        print(f"Error: The file '{file_path}' was not found.")
+        return set()
+
+# Main program for testing
+if __name__ == "__main__":
+    # File name
+    input_filename = "sample_text.txt"
+
+    # Check if the sample file exists; create one if it doesn't
+    if not os.path.exists(input_filename):
+        with open(input_filename, 'w') as f:
+            f.write("This is a test file.\nIt contains some text with repeated words. Words may be unique or repeated.")
+
+    # Extract and display unique words
+    unique_words = extract_unique_words(input_filename)
+    print("Unique words found in the file:")
+    for word in sorted(unique_words):
+        print(word)
