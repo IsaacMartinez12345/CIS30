@@ -1,0 +1,13 @@
+
+#  calculate the sum of numbers from 1 to n
+def recursive_sum_to_n(n):
+    if n == 0:  # Base case: sum of numbers up to 0 is 0
+        return 0
+    return n + recursive_sum_to_n(n - 1)
+
+# Main program for testing
+if __name__ == "__main__":
+    # Test the recursive sum to n function
+    number = 50  # Example number
+    total_sum = recursive_sum_to_n(number)
+    print(f"The sum of all integers from 1 to {number} is: {total_sum}")
