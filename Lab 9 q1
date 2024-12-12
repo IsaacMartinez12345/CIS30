@@ -1,0 +1,45 @@
+# Dictionaries containing course information
+course_rooms = {
+    "CS101": "3004",
+    "CS102": "4501",
+    "CS103": "6755",
+    "NT110": "1244",
+    "CM241": "1411"
+}
+
+course_instructors = {
+    "CS101": "Haynes",
+    "CS102": "Alvarado",
+    "CS103": "Rich",
+    "NT110": "Burke",
+    "CM241": "Lee"
+}
+
+course_times = {
+    "CS101": "8:00 a.m.",
+    "CS102": "9:00 a.m.",
+    "CS103": "10:00 a.m.",
+    "NT110": "11:00 a.m.",
+    "CM241": "1:00 p.m."
+}
+
+# Function to retrieve course details
+def get_course_details(course_number):
+    room = course_rooms.get(course_number)
+    instructor = course_instructors.get(course_number)
+    time = course_times.get(course_number)
+
+    if room and instructor and time:
+        return f"Course: {course_number}\nRoom: {room}\nInstructor: {instructor}\nTime: {time}"
+    else:
+        return "Invalid course number. Please try again."
+
+# Main program
+if __name__ == "__main__":
+    # For environments where input() is restricted, use predefined test values
+    test_course_numbers = ["CS101", "CS102", "CS103", "NT110", "CM241", "INVALID"]
+
+    for course_number in test_course_numbers:
+        print(f"\nTesting with course number: {course_number}")
+        details = get_course_details(course_number)
+        print(details)
