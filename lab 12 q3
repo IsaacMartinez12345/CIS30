@@ -1,0 +1,14 @@
+
+# Recursive function to display n lines of asterisks
+def recursive_lines(n, current=1):
+    if current > n:
+        return
+    print('*' * current)
+    recursive_lines(n, current + 1)
+
+# Main program for testing
+if __name__ == "__main__":
+    # Test the recursive lines function
+    n = 5  # Example value for n
+    print(f"Displaying {n} lines of asterisks:")
+    recursive_lines(n)
