@@ -1,0 +1,14 @@
+
+# Recursive function to print numbers from 1 to n
+def recursive_print(n, current=1):
+    if current > n:
+        return
+    print(current)
+    recursive_print(n, current + 1)
+
+# Main program for testing
+if __name__ == "__main__":
+    # Test the recursive function
+    number = 10  # Example number
+    print(f"Printing numbers from 1 to {number}:")
+    recursive_print(number)
