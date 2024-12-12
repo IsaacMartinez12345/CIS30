@@ -1,0 +1,52 @@
+
+
+# Function to extract unique words from a file
+def extract_unique_words(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            unique_words = set()
+            for line in file:
+                words = line.split()
+                unique_words.update(word.strip(".,!?""'()[]").lower() for word in words)
+        return unique_words
+    except FileNotFoundError:
+        print(f"Error: The file '{file_path}' was not found.")
+        return set()
+
+# Function to analyze and compare two text files
+def analyze_files(file1, file2):
+    words_file1 = extract_unique_words(file1)
+    words_file2 = extract_unique_words(file2)
+
+    print("Unique words in both files:")
+    print(sorted(words_file1 | words_file2))
+
+    print("\nWords in both files:")
+    print(sorted(words_file1 & words_file2))
+
+    print("\nWords in the first file but not the second:")
+    print(sorted(words_file1 - words_file2))
+
+    print("\nWords in the second file but not the first:")
+    print(sorted(words_file2 - words_file1))
+
+    print("\nWords in either the first or second file but not both:")
+    print(sorted(words_file1 ^ words_file2))
+
+# Main program for testing
+if __name__ == "__main__":
+    # File names
+    file1_name = "file1.txt"
+    file2_name = "file2.txt"
+
+    # Check if the files exist; create them with sample content if they don't
+    if not os.path.exists(file1_name):
+        with open(file1_name, 'w') as f:
+            f.write("This is the first test file. It contains some words that are unique.")
+
+    if not os.path.exists(file2_name):
+        with open(file2_name, 'w') as f:
+            f.write("This is the second test file. Some words here overlap with the first file.")
+
+    # Analyze the two files
+    analyze_files(file1_name, file2_name)
