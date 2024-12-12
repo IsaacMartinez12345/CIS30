@@ -1,0 +1,46 @@
+# Function to calculate word frequencies in a file
+def calculate_word_frequencies(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            word_count = {}
+            for line in file:
+                words = line.split()
+                for word in words:
+                    clean_word = word.strip(".,!?""'()[]").lower()
+                    word_count[clean_word] = word_count.get(clean_word, 0) + 1
+        return word_count
+    except FileNotFoundError:
+        print(f"Error: The file '{file_path}' was not found.")
+        return {}
+
+# Function to write word frequencies to a new file
+def write_frequencies_to_file(word_count, output_file):
+    try:
+        with open(output_file, 'w') as file:
+            for word, count in sorted(word_count.items()):
+                file.write(f"{word}: {count}\n")
+        print(f"Word frequencies have been written to '{output_file}'.")
+    except Exception as e:
+        print(f"Error: Could not write to file '{output_file}'. {e}")
+
+# Main program for testing
+if __name__ == "__main__":
+    # File names
+    input_filename = "sample_text.txt"
+    output_filename = "word_frequencies.txt"
+
+    # Check if the sample file exists; create one if it doesn't
+    if not os.path.exists(input_filename):
+        with open(input_filename, 'w') as f:
+            f.write("This is a test file.\nThis file contains repeated words. Words may repeat or be unique.")
+
+    # Calculate word frequencies
+    word_frequencies = calculate_word_frequencies(input_filename)
+
+    # Display word frequencies
+    print("Word frequencies:")
+    for word, count in sorted(word_frequencies.items()):
+        print(f"{word}: {count}")
+
+    # Write word frequencies to a file
+    write_frequencies_to_file(word_frequencies, output_filename)
