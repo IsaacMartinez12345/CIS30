@@ -1,0 +1,8 @@
+def count_frequencies(input_strings):
+    frequency_count = {}
+    for word in input_strings:
+        if word in frequency_count:
+            frequency_count[word] += 1
+        else:
+            frequency_count[word] = 1
+    return frequency_count
